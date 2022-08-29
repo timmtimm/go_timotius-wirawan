@@ -62,14 +62,14 @@ Untuk cara deklarasi variabel ada dua yaitu:
 
 ### Operator
 Berikut operasi yang dapat dilakukan Golang
-| Jenis         | Operator                                      |
-|---------------|-----------------------------------------------|
-| Arithmetic    | `+, -, *, /, %, ++, --`                       |
-| Comparasion   | `==, !=, >, <, >=, <=`                        |
-| Logical       | `&&, \|\|, !`                                 |
-| Bitwise       | `&, \|, ^, <<, >>`                            |
-| Assignment    | `=, +=, -=, *=, /=, &=, <<=, >>=, &=, ^=, |=` |
-| Miscellaneous | `&, *`                                        |
+| Jenis         | Operator                                       |
+|---------------|------------------------------------------------|
+| Arithmetic    | `+, -, *, /, %, ++, --`                        |
+| Comparasion   | `==, !=, >, <, >=, <=`                         |
+| Logical       | `&&, \|\|, !`                                  |
+| Bitwise       | `&, \|, ^, <<, >>`                             |
+| Assignment    | `=, +=, -=, *=, /=, &=, <<=, >>=, &=, ^=, \|=` |
+| Miscellaneous | `&, *`                                         |
 
 ### Control Structuring
 Untuk melakukan percabangan dapat menggunakan if dan switching sedangkan untuk melakukan perulangan dapat menggunakan for.
