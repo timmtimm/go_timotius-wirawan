@@ -5,7 +5,7 @@ import "fmt"
 func palindrome(input string) bool {
 	lengthInput := len(input)
 
-	for i := 1; i<=lengthInput/2; i++ {
+	for i := 0; i<lengthInput/2; i++ {
 		if (input[i] != input[lengthInput - i - 1]) {
 			return false
 		}
