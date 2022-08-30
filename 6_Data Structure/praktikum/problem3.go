@@ -3,7 +3,8 @@ package main
 import "fmt"
 
 func PairSum(arr []int, target int) []int {
-	left, right := 0, len(arr) - 1
+	left := 0
+	right := len(arr) - 1
 
 	for left < right {
 		sum := arr[left] + arr[right]
