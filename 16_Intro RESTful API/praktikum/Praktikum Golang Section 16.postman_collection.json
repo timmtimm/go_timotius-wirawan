@@ -1,0 +1,348 @@
+{
+	"info": {
+		"_postman_id": "5f4c6fc4-b019-406a-b8ed-f79ae5990b08",
+		"name": "Praktikum Golang Section 16",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Target 1 - NewsAPI",
+			"item": [
+				{
+					"name": "All articles about Bitcoin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{news_base}}/everything?q=bitcoin&apiKey={{news_api_key}}",
+							"host": [
+								"{{news_base}}"
+							],
+							"path": [
+								"everything"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "bitcoin"
+								},
+								{
+									"key": "apiKey",
+									"value": "{{news_api_key}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All articles mentioning Apple from yesterday, sorted by popular publishers first",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{news_base}}/everything?q=apple&from=2022-09-19&to=2022-09-19&sortBy=popularity&apiKey={{news_api_key}}",
+							"host": [
+								"{{news_base}}"
+							],
+							"path": [
+								"",
+								"everything"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "apple"
+								},
+								{
+									"key": "from",
+									"value": "2022-09-19"
+								},
+								{
+									"key": "to",
+									"value": "2022-09-19"
+								},
+								{
+									"key": "sortBy",
+									"value": "popularity"
+								},
+								{
+									"key": "apiKey",
+									"value": "{{news_api_key}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Top headlines in the US",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{news_base}}/top-headlines?country=us&apiKey={{news_api_key}}",
+							"host": [
+								"{{news_base}}"
+							],
+							"path": [
+								"",
+								"top-headlines"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "us"
+								},
+								{
+									"key": "apiKey",
+									"value": "{{news_api_key}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Top headlines from BBC News",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{news_base}}/top-headlines?sources=bbc-news&apiKey={{news_api_key}}",
+							"host": [
+								"{{news_base}}"
+							],
+							"path": [
+								"",
+								"top-headlines"
+							],
+							"query": [
+								{
+									"key": "sources",
+									"value": "bbc-news"
+								},
+								{
+									"key": "apiKey",
+									"value": "{{news_api_key}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Top Headline All sources",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{news_base}}/top-headlines/sources?apiKey={{news_api_key}}",
+							"host": [
+								"{{news_base}}"
+							],
+							"path": [
+								"",
+								"top-headlines",
+								"sources"
+							],
+							"query": [
+								{
+									"key": "apiKey",
+									"value": "{{news_api_key}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Target 2 - SWAPI",
+			"item": [
+				{
+					"name": "People",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{swapi_base}}/people/1",
+							"host": [
+								"{{swapi_base}}"
+							],
+							"path": [
+								"people",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Planet",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{swapi_base}}/planets/1",
+							"host": [
+								"{{swapi_base}}"
+							],
+							"path": [
+								"planets",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Starship",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{swapi_base}}/starships/9",
+							"host": [
+								"{{swapi_base}}"
+							],
+							"path": [
+								"starships",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Film",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{swapi_base}}/films/1",
+							"host": [
+								"{{swapi_base}}"
+							],
+							"path": [
+								"films",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Species",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{swapi_base}}/species/3",
+							"host": [
+								"{{swapi_base}}"
+							],
+							"path": [
+								"species",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Target 3 - Rent a Book",
+			"item": [
+				{
+					"name": "Get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{rentabook_base}}/user/1",
+							"host": [
+								"{{rentabook_base}}"
+							],
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"name\": \"Rudy\",\r\n  \"age\": 61,\r\n  \"sex\": \"male\",\r\n  \"client_id\": 1\r\n}"
+						},
+						"url": {
+							"raw": "{{rentabook_base}}/user/1",
+							"host": [
+								"{{rentabook_base}}"
+							],
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 1001,\r\n  \"name\": \"Rudy Tabuti\",\r\n  \"age\": 12,\r\n  \"sex\": \"male\",\r\n  \"client_id\": 1001\r\n}"
+						},
+						"url": {
+							"raw": "{{rentabook_base}}/user",
+							"host": [
+								"{{rentabook_base}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{rentabook_base}}/user/1",
+							"host": [
+								"{{rentabook_base}}"
+							],
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
