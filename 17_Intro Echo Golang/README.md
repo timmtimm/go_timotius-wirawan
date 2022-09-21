@@ -18,5 +18,5 @@ Advantages using echo framework:
 ### Install echo
 
 ```
-go get https://github.com/labstack/echo
+go get github.com/labstack/echo
 ```
