@@ -131,7 +131,7 @@ func main() {
 	e := echo.New()
 	// routing with query parameter
 	e.GET("/users", GetUsersController)
-	e.POST("/users", CreateUserController)
+	e.POST("/user", CreateUserController)
 	e.GET("/user/:id", GetUserController)
 	e.DELETE("/user/:id", DeleteUserController)
 	e.PUT("/user/:id", UpdateUserController)
