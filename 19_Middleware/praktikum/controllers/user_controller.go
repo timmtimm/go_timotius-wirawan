@@ -3,8 +3,8 @@ package controllers
 import (
 	"fmt"
 	"net/http"
-	"praktikum_section_18/lib/database"
-	"praktikum_section_18/models"
+	"praktikum_section_19/lib/database"
+	"praktikum_section_19/models"
 	"strconv"
 
 	"github.com/labstack/echo"
@@ -20,7 +20,7 @@ func GetUsersController(c echo.Context) error {
 
 	return c.JSON(http.StatusOK, map[string]interface{}{
 		"message": "success get all users",
-		"users": users,
+		"users":   users,
 	})
 }
 
@@ -37,7 +37,7 @@ func CreateUserController(c echo.Context) error {
 
 	return c.JSON(http.StatusOK, map[string]interface{}{
 		"message": "success create new user",
-		"user": user,
+		"user":    user,
 	})
 }
 
@@ -53,7 +53,7 @@ func GetUserController(c echo.Context) error {
 
 	return c.JSON(http.StatusOK, map[string]interface{}{
 		"messages": fmt.Sprintf("success get user with id %d", userID),
-		"user": user,
+		"user":     user,
 	})
 }
 
@@ -89,6 +89,6 @@ func UpdateUserController(c echo.Context) error {
 
 	return c.JSON(http.StatusOK, map[string]interface{}{
 		"messages": fmt.Sprintf("success update user with id %d", userID),
-		"users": user,
+		"users":    user,
 	})
 }

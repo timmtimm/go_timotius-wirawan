@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"praktikum_section_18/controllers"
+	"praktikum_section_19/controllers"
 
 	"github.com/labstack/echo"
 )

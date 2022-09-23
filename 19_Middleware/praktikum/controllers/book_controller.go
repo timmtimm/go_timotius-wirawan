@@ -3,8 +3,8 @@ package controllers
 import (
 	"fmt"
 	"net/http"
-	"praktikum_section_18/lib/database"
-	"praktikum_section_18/models"
+	"praktikum_section_19/lib/database"
+	"praktikum_section_19/models"
 	"strconv"
 
 	"github.com/labstack/echo"
@@ -20,7 +20,7 @@ func GetBooksController(c echo.Context) error {
 
 	return c.JSON(http.StatusOK, map[string]interface{}{
 		"message": "success get all books",
-		"books": books,
+		"books":   books,
 	})
 }
 
@@ -37,7 +37,7 @@ func CreateBookController(c echo.Context) error {
 
 	return c.JSON(http.StatusOK, map[string]interface{}{
 		"message": "success create new book",
-		"book": book,
+		"book":    book,
 	})
 }
 
@@ -53,7 +53,7 @@ func GetBookController(c echo.Context) error {
 
 	return c.JSON(http.StatusOK, map[string]interface{}{
 		"messages": fmt.Sprintf("success get book with id %d", bookID),
-		"book": book,
+		"book":     book,
 	})
 }
 
@@ -93,6 +93,6 @@ func UpdateBookController(c echo.Context) error {
 
 	return c.JSON(http.StatusOK, map[string]interface{}{
 		"messages": fmt.Sprintf("success update user with id %d", bookID),
-		"book": book,
+		"book":     book,
 	})
 }

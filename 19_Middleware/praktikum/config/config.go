@@ -2,7 +2,8 @@ package config
 
 import (
 	"fmt"
-	"praktikum_section_18/models"
+	"praktikum_section_19/models"
+
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
@@ -25,7 +26,7 @@ type Config struct {
 }
 
 func InitDB() {
-	config := Config {
+	config := Config{
 		DB_Username: "root",
 		DB_Password: "",
 		DB_Port:     "3306",

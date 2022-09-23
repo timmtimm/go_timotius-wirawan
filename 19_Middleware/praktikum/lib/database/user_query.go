@@ -1,8 +1,8 @@
 package database
 
 import (
-	"praktikum_section_18/config"
-	"praktikum_section_18/models"
+	"praktikum_section_19/config"
+	"praktikum_section_19/models"
 )
 
 func GetUsers() (interface{}, error) {
