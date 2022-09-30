@@ -2,7 +2,6 @@ package routes
 
 import (
 	"praktikum_section_19/controllers"
-	"praktikum_section_19/middlewares"
 
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
@@ -10,8 +9,6 @@ import (
 
 func New() *echo.Echo {
 	e := echo.New()
-
-	middlewares.LogMiddleware(e)
 
 	// unauthenticated routes
 	e.POST("/register", controllers.Register)
