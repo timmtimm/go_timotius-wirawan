@@ -3,16 +3,18 @@ package controllers
 import (
 	"fmt"
 	"net/http"
-	"praktikum_section_19/lib/database"
 	"praktikum_section_19/models"
+	"praktikum_section_19/service"
 	"strconv"
 
 	"github.com/labstack/echo"
 )
 
+var bookService service.BookService = service.NewBookService()
+
 // get all books
 func GetBooksController(c echo.Context) error {
-	books, err := database.GetBooks()
+	books, err := bookService.GetBooks()
 
 	if err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
@@ -29,7 +31,7 @@ func CreateBookController(c echo.Context) error {
 	FormBook := models.Book{}
 	c.Bind(&FormBook)
 
-	book, err := database.CreateBook(&FormBook)
+	book, err := bookService.CreateBook(&FormBook)
 
 	if err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
@@ -45,7 +47,7 @@ func CreateBookController(c echo.Context) error {
 func GetBookController(c echo.Context) error {
 	bookID, _ := strconv.Atoi(c.Param("id"))
 
-	book, err := database.GetBook(bookID)
+	book, err := bookService.GetBook(bookID)
 
 	if err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
@@ -61,7 +63,7 @@ func GetBookController(c echo.Context) error {
 func DeleteBookController(c echo.Context) error {
 	bookID, _ := strconv.Atoi(c.Param("id"))
 
-	err := database.DeleteBook(bookID)
+	err := bookService.DeleteBook(bookID)
 
 	if err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
@@ -85,7 +87,7 @@ func UpdateBookController(c echo.Context) error {
 	newBook.TotalPage, _ = strconv.Atoi(c.FormValue("total_page"))
 	newBook.Price, _ = strconv.Atoi(c.FormValue("price"))
 
-	book, err := database.UpdateBook(bookID, newBook)
+	book, err := bookService.UpdateBook(bookID, newBook)
 
 	if err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())

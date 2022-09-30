@@ -3,6 +3,7 @@ package config
 import (
 	"fmt"
 	"praktikum_section_19/models"
+	"praktikum_section_19/utils"
 
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
@@ -27,11 +28,11 @@ type Config struct {
 
 func InitDB() {
 	config := Config{
-		DB_Username: "root",
-		DB_Password: "",
-		DB_Port:     "3306",
-		DB_Host:     "localhost",
-		DB_Name:     "praktikum_section_18",
+		DB_Username: utils.GetConfig("DB_Username"),
+		DB_Password: utils.GetConfig("DB_Password"),
+		DB_Port:     utils.GetConfig("DB_Port"),
+		DB_Host:     utils.GetConfig("DB_Host"),
+		DB_Name:     utils.GetConfig("DB_Name"),
 	}
 
 	connectionString := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local",
@@ -51,6 +52,5 @@ func InitDB() {
 }
 
 func InitialMigration() {
-	DB.AutoMigrate(&models.User{})
-	DB.AutoMigrate(&models.Book{})
+	DB.AutoMigrate(&models.User{}, &models.Book{})
 }

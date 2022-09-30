@@ -3,16 +3,18 @@ package controllers
 import (
 	"fmt"
 	"net/http"
-	"praktikum_section_19/lib/database"
 	"praktikum_section_19/models"
+	"praktikum_section_19/service"
 	"strconv"
 
 	"github.com/labstack/echo"
 )
 
+var userService service.UserService = service.NewUserService()
+
 // get all users
 func GetUsersController(c echo.Context) error {
-	users, err := database.GetUsers()
+	users, err := userService.GetUsers()
 
 	if err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
@@ -29,7 +31,7 @@ func CreateUserController(c echo.Context) error {
 	FormUser := models.User{}
 	c.Bind(&FormUser)
 
-	user, err := database.CreateUser(&FormUser)
+	user, err := userService.CreateUser(&FormUser)
 
 	if err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
@@ -45,7 +47,7 @@ func CreateUserController(c echo.Context) error {
 func GetUserController(c echo.Context) error {
 	userID, _ := strconv.Atoi(c.Param("id"))
 
-	user, err := database.GetUser(userID)
+	user, err := userService.GetUser(userID)
 
 	if err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
@@ -61,7 +63,7 @@ func GetUserController(c echo.Context) error {
 func DeleteUserController(c echo.Context) error {
 	userID, _ := strconv.Atoi(c.Param("id"))
 
-	err := database.DeleteUser(userID)
+	err := userService.DeleteUser(userID)
 
 	if err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
@@ -81,7 +83,7 @@ func UpdateUserController(c echo.Context) error {
 	newUser.Email = c.FormValue("email")
 	newUser.Password = c.FormValue("password")
 
-	user, err := database.UpdateUser(userID, newUser)
+	user, err := userService.UpdateUser(userID, newUser)
 
 	if err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
