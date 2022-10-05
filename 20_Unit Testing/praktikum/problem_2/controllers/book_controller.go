@@ -54,8 +54,8 @@ func GetBookController(c echo.Context) error {
 	}
 
 	return c.JSON(http.StatusOK, map[string]interface{}{
-		"messages": fmt.Sprintf("success get book with id %d", bookID),
-		"book":     book,
+		"message": fmt.Sprintf("success get book with id %d", bookID),
+		"book":    book,
 	})
 }
 
@@ -70,7 +70,7 @@ func DeleteBookController(c echo.Context) error {
 	}
 
 	return c.JSON(http.StatusOK, map[string]interface{}{
-		"messages": fmt.Sprintf("success delete books with id %d", bookID),
+		"message": fmt.Sprintf("success delete books with id %d", bookID),
 	})
 }
 
@@ -94,7 +94,7 @@ func UpdateBookController(c echo.Context) error {
 	}
 
 	return c.JSON(http.StatusOK, map[string]interface{}{
-		"messages": fmt.Sprintf("success update user with id %d", bookID),
-		"book":     book,
+		"message": fmt.Sprintf("success update user with id %d", bookID),
+		"book":    book,
 	})
 }

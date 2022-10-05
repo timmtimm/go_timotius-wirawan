@@ -2,6 +2,7 @@ package routes
 
 import (
 	"praktikum_section_20/controllers"
+	"praktikum_section_20/utils"
 
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
@@ -22,12 +23,12 @@ func New() *echo.Echo {
 	privateRoutes := e.Group("")
 
 	privateRoutes.Use(middleware.JWTWithConfig(middleware.JWTConfig{
-		SigningKey: []byte("secretkey"),
+		SigningKey: []byte(utils.GetConfig("SECRET_JWT")),
 	}))
 
 	// users
 	privateRoutes.GET("/users", controllers.GetUsersController)
-	privateRoutes.GET("/users/:id", controllers.GetUserController)
+	privateRoutes.GET("/user/:id", controllers.GetUserController)
 	privateRoutes.DELETE("/user/:id", controllers.DeleteUserController)
 	privateRoutes.PUT("/user/:id", controllers.UpdateUserController)
 

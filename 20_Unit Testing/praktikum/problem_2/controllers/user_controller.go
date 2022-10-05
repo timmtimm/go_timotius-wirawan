@@ -54,8 +54,8 @@ func GetUserController(c echo.Context) error {
 	}
 
 	return c.JSON(http.StatusOK, map[string]interface{}{
-		"messages": fmt.Sprintf("success get user with id %d", userID),
-		"user":     user,
+		"message": fmt.Sprintf("success get user with id %d", userID),
+		"user":    user,
 	})
 }
 
@@ -70,7 +70,7 @@ func DeleteUserController(c echo.Context) error {
 	}
 
 	return c.JSON(http.StatusOK, map[string]interface{}{
-		"messages": fmt.Sprintf("success delete user with id %d", userID),
+		"message": fmt.Sprintf("success delete user with id %d", userID),
 	})
 }
 
@@ -90,7 +90,7 @@ func UpdateUserController(c echo.Context) error {
 	}
 
 	return c.JSON(http.StatusOK, map[string]interface{}{
-		"messages": fmt.Sprintf("success update user with id %d", userID),
-		"users":    user,
+		"message": fmt.Sprintf("success update user with id %d", userID),
+		"user":    user,
 	})
 }
