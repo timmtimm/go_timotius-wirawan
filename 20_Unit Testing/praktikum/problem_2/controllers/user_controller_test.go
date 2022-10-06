@@ -50,7 +50,7 @@ func TestGetAllUsers_Success(t *testing.T) {
 		expectBodyStartWith: "{\"message\":",
 	}}
 
-	config.InitTestDB()
+	config.InitDB("testing")
 	e := echo.New()
 
 	req := httptest.NewRequest(http.MethodGet, "/users", nil)
@@ -82,7 +82,7 @@ func TestGetUser_Success(t *testing.T) {
 		expectBodyStartWith: "{\"message\":",
 	}}
 
-	config.InitTestDB()
+	config.InitDB("testing")
 	e := echo.New()
 
 	user := seedUser()
@@ -119,7 +119,7 @@ func TestCreateUser_Success(t *testing.T) {
 		expectBodyStartWith: "{\"message\":",
 	}}
 
-	config.InitTestDB()
+	config.InitDB("testing")
 	e := echo.New()
 
 	encryptedPassword, _ := bcrypt.GenerateFromPassword([]byte("password_user"), bcrypt.DefaultCost)
@@ -162,7 +162,7 @@ func TestDeleteUser_Success(t *testing.T) {
 		expectBodyStartWith: "{\"message\":",
 	}}
 
-	config.InitTestDB()
+	config.InitDB("testing")
 	e := echo.New()
 
 	user := seedUser()
@@ -199,7 +199,7 @@ func TestUpdateUser_Success(t *testing.T) {
 		expectBodyStartWith: "{\"message\":",
 	}}
 
-	config.InitTestDB()
+	config.InitDB("testing")
 	e := echo.New()
 
 	user := seedUser()

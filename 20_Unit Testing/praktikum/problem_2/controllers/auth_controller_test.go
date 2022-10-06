@@ -50,7 +50,7 @@ func TestRegister_Success(t *testing.T) {
 		expectBodyStartWith: "{\"ID\":",
 	}}
 
-	config.InitTestDB()
+	config.InitDB("testing")
 	e := echo.New()
 
 	user := models.UserInput{
@@ -99,7 +99,7 @@ func TestRegister_Failed(t *testing.T) {
 		expectBodyStartWith: "{\"message\":",
 	}}
 
-	config.InitTestDB()
+	config.InitDB("testing")
 	e := echo.New()
 
 	user := models.UserInput{
@@ -144,7 +144,7 @@ func TestLogin_Success(t *testing.T) {
 		expectBodyStartWith: "{\"token\":",
 	}}
 
-	config.InitTestDB()
+	config.InitDB("testing")
 	e := echo.New()
 
 	user := seedAuth()
@@ -193,11 +193,11 @@ func TestLogin_Failed(t *testing.T) {
 		expectBodyStartWith: "{\"message\":",
 	}}
 
-	config.InitTestDB()
+	config.InitDB("testing")
 	e := echo.New()
 
 	bodyRequest := [][]byte{
-		[]byte(`{}`),
+		[]byte(`{"name": true}`),
 		[]byte(`{"email":` + "" + `"password"` + "" + `}`),
 		[]byte(`{"email":"` + "agus@gmail.com" + `","password":"` + "suga123" + `"}`)}
 

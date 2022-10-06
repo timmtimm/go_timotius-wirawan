@@ -58,7 +58,7 @@ func TestGetAllBooks_Success(t *testing.T) {
 		expectBodyStartWith: "{\"books\":",
 	}}
 
-	config.InitTestDB()
+	config.InitDB("testing")
 	e := echo.New()
 
 	req := httptest.NewRequest(http.MethodGet, "/books", nil)
@@ -90,7 +90,7 @@ func TestGetBook_Success(t *testing.T) {
 		expectBodyStartWith: "{\"book\":",
 	}}
 
-	config.InitTestDB()
+	config.InitDB("testing")
 	e := echo.New()
 
 	book := seedBook()
@@ -127,7 +127,7 @@ func TestCreateBook_Success(t *testing.T) {
 		expectBodyStartWith: "{\"book\":",
 	}}
 
-	config.InitTestDB()
+	config.InitDB("testing")
 	e := echo.New()
 
 	var book models.Book = models.Book{
@@ -180,7 +180,7 @@ func TestDeleteBook_Success(t *testing.T) {
 		expectBodyStartWith: "{\"message\":",
 	}}
 
-	config.InitTestDB()
+	config.InitDB("testing")
 	e := echo.New()
 
 	book := seedBook()
@@ -217,7 +217,7 @@ func TestUpdateBook_Success(t *testing.T) {
 		expectBodyStartWith: "{\"book\":",
 	}}
 
-	config.InitTestDB()
+	config.InitDB("testing")
 	e := echo.New()
 
 	book := seedBook()

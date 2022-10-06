@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	config.InitDB()
+	config.InitDB("production")
 	e := routes.New()
 	middlewares.LogMiddleware(e)
 	// start the server, and log if it fails
