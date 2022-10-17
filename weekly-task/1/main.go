@@ -4,12 +4,14 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"sort"
 	"strings"
 
 	"github.com/google/uuid"
 )
 
 type Books struct {
+	uuid     string
 	title    string
 	price    int
 	category string
@@ -54,12 +56,18 @@ func scanner() (string, int, string) {
 	return title, price, category
 }
 
+func remove(slice []Books, s int) []Books {
+	return append(slice[:s], slice[s+1:]...)
+}
+
 func main() {
-	books := map[string]Books{}
+	books := []Books{}
 	var (
 		command int
 		uuid    string
 	)
+
+	var found bool = false
 
 	for command != 5 {
 		fmt.Println("===BOOK MANAGEMENT===")
@@ -75,8 +83,8 @@ func main() {
 		switch command {
 		case 1:
 			fmt.Println("All books\n===")
-			for key, book := range books {
-				fmt.Println("ID:\t", key)
+			for _, book := range books {
+				fmt.Println("ID:\t", book.uuid)
 				fmt.Println("Title:\t", book.title)
 				fmt.Println("Price:\t", book.price)
 				fmt.Println("Category:\t", book.category, "\n===")
@@ -86,28 +94,49 @@ func main() {
 			title, price, category := scanner()
 			uuid := generateUUID()
 
-			books[uuid] = Books{title, price, category}
+			books = append(books, Books{uuid, title, price, category})
+
+			sort.Slice(books, func(i, j int) bool {
+				return books[i].title < books[j].title
+			})
 
 			fmt.Printf("Book added!\n\n")
 		case 3:
 			fmt.Print("Enter ID: ")
 			fmt.Scan(&uuid)
 
-			if _, isExist := books[uuid]; isExist {
-				title, price, category := scanner()
-				books[uuid] = Books{title, price, category}
-				fmt.Printf("Book updated!\n\n")
-			} else {
+			for index, book := range books {
+				if book.uuid == uuid {
+					found = true
+					title, price, category := scanner()
+					remove(books, index)
+					books = append(books, Books{uuid, title, price, category})
+
+					sort.Slice(books, func(i, j int) bool {
+						return books[i].title < books[j].title
+					})
+
+					fmt.Printf("Book updated!\n\n")
+				}
+			}
+
+			if !found {
 				fmt.Printf("Book is not exist!\n\n")
 			}
 		case 4:
 			fmt.Print("Enter ID: ")
 			fmt.Scan(&uuid)
 
-			if _, isExist := books[uuid]; isExist {
-				delete(books, uuid)
-				fmt.Printf("Book deleted!\n\n")
-			} else {
+			for index, book := range books {
+				if book.uuid == uuid {
+					found = true
+					remove(books, index)
+
+					fmt.Printf("Book deleted!\n\n")
+				}
+			}
+
+			if !found {
 				fmt.Printf("Book is not exist!\n\n")
 			}
 		case 5:
