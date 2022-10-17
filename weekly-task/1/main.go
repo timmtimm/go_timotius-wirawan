@@ -109,7 +109,7 @@ func main() {
 				if book.uuid == uuid {
 					found = true
 					title, price, category := scanner()
-					remove(books, index)
+					books = remove(books, index)
 					books = append(books, Books{uuid, title, price, category})
 
 					sort.Slice(books, func(i, j int) bool {
@@ -130,7 +130,7 @@ func main() {
 			for index, book := range books {
 				if book.uuid == uuid {
 					found = true
-					remove(books, index)
+					books = remove(books, index)
 
 					fmt.Printf("Book deleted!\n\n")
 				}
